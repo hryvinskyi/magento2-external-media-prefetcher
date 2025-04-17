@@ -1,0 +1,27 @@
+{
+  "name": "hryvinskyi/magento2-external-media-prefetcher",
+  "version": "1.0.0",
+  "description": "N/A",
+  "type": "magento2-module",
+  "require": {
+    "magento/framework": "*",
+    "magento/module-media-storage": "100.4.*"
+  },
+  "license": [
+    "MIT"
+  ],
+  "authors": [
+    {
+      "name": "Volodymyr Hryvinskyi",
+      "email": "volodymyr@hryvinskyi.com"
+    }
+  ],
+  "autoload": {
+    "files": [
+      "registration.php"
+    ],
+    "psr-4": {
+      "Hryvinskyi\\ExternalMediaPrefetcher\\": ""
+    }
+  }
+}
