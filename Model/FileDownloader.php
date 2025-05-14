@@ -97,8 +97,15 @@ class FileDownloader implements FileDownloaderInterface
      */
     public function prepareDestinationDirectory(string $filename): string
     {
-        $destinationDir = $this->mediaDirectory->getAbsolutePath()
-            . ltrim(dirname($filename), DirectoryList::MEDIA . DIRECTORY_SEPARATOR);
+        $dirPath = dirname($filename);
+        $mediaPath = DirectoryList::MEDIA . DIRECTORY_SEPARATOR;
+
+        // Only remove the prefix if it exists at the beginning of the path
+        if (strpos($dirPath, $mediaPath) === 0) {
+            $dirPath = substr($dirPath, strlen($mediaPath));
+        }
+
+        $destinationDir = $this->mediaDirectory->getAbsolutePath() . $dirPath;
 
         $this->file->checkAndCreateFolder($destinationDir);
 
